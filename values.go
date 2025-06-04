@@ -47,7 +47,7 @@ func (v *values[T]) put(value T) (uint32, error) {
 	default:
 		keyProvider, ok := any(value).(KeyProvider)
 		if !ok {
-			return 0, fmt.Errorf("unhashable type %T, consifer implementing Hash() int", value)
+			return 0, fmt.Errorf("unhashable type %T, consider implementing Key() interface{}", value)
 		}
 		key = keyProvider.Key()
 	}
